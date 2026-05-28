@@ -20,4 +20,9 @@ class Storage extends Model
     protected $table = 'storages';
 
     protected $fillable = ['name', 'address'];
+
+    public function batches(): HasMany
+    {
+        return $this->hasMany(Batch::class);
+    }
 }
