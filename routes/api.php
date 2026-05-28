@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Api\V1\BatchController;
 use App\Http\Controllers\Api\V1\BatchRefundController;
 use App\Http\Controllers\Api\V1\OrderController;
 use App\Http\Controllers\Api\V1\ProductController;
@@ -22,4 +23,5 @@ Route::prefix('v1')->group(function (): void {
     Route::get('products/available', [ProductController::class, 'available']);
     Route::post('orders', [OrderController::class, 'store']);
     Route::get('storage/remaining', [StorageController::class, 'remaining']);
+    Route::get('batches/profit', [BatchController::class, 'profit']);
 });
