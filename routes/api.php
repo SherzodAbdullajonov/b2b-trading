@@ -1,24 +1,24 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
+
+use App\Http\Controllers\Api\V1\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Routes registered here are loaded by the bootstrap/app.php `api`
-| group with the `/api` URI prefix.
-|
-| Endpoints will be wired up in later steps:
-|   POST  /api/purchases
-|   POST  /api/batches/{batch}/refunds
-|   GET   /api/products/available
-|   POST  /api/orders
-|   GET   /api/storage/remaining
-|   GET   /api/batches/profit
-|
 */
 
-Route::get('/ping', fn () => ['ok' => true, 'service' => 'b2b-trading-api']);
+
+Route::prefix('v1')->group(function (): void {
+    Route::post('purchases', [PurchaseController::class, 'store']);
+
+    // Endpoints arriving in later steps:
+    //   POST  /api/v1/batches/{batch}/refunds      (Step 6)
+    //   GET   /api/v1/products/available           (Step 7)
+    //   POST  /api/v1/orders                       (Step 8)
+    //   GET   /api/v1/storage/remaining            (Step 9)
+    //   GET   /api/v1/batches/profit               (Step 10)
+});
