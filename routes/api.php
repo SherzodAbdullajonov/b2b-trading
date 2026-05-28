@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\BatchRefundController;
 use App\Http\Controllers\Api\V1\OrderController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\PurchaseController;
+use App\Http\Controllers\Api\V1\StorageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,5 @@ Route::prefix('v1')->group(function (): void {
     Route::post('batches/{batch}/refunds', [BatchRefundController::class, 'store']);
     Route::get('products/available', [ProductController::class, 'available']);
     Route::post('orders', [OrderController::class, 'store']);
+    Route::get('storage/remaining', [StorageController::class, 'remaining']);
 });
